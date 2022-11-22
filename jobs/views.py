@@ -144,7 +144,6 @@ def company_signup(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         phone = request.POST['phone']
-        gender = request.POST['gender']
         image = request.FILES['image']
         company_name = request.POST['company_name']
 
@@ -153,10 +152,10 @@ def company_signup(request):
             return redirect('/signup')
         
         user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password1)
-        company = Company.objects.create(user=user, phone=phone, gender=gender, image=image, company_name=company_name, type="company", status="pending")
+        company = Company.objects.create(user=user, phone=phone, image=image, company_name=company_name, type="company", status="pending")
         user.save()
         company.save()
-        return render(request, "company_login.html")
+        return redirect('company_login')
     return render(request, "company_signup.html")
 
 def company_login(request):
@@ -184,13 +183,11 @@ def company_homepage(request):
         first_name=request.POST['first_name']
         last_name=request.POST['last_name']
         phone = request.POST['phone']
-        gender = request.POST['gender']
 
         company.user.email = email
         company.user.first_name = first_name
         company.user.last_name = last_name
         company.phone = phone
-        company.gender = gender
         company.save()
         company.user.save()
 
