@@ -14,10 +14,10 @@
   <title>{% block title %}{% endblock %}</title>
   <style>
     .navbar {
-      background-color: #4f868c;
+      background-color: #49416dff;
     }
     .head1 {
-      color: #FBAD30;
+      color: #e0efdeff;
       font-size: 25px;
       font-weight: bold;
       height: 50px;
@@ -35,9 +35,9 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="/"><span class="head1">Tech</span><span class="head2">Vidvan</span></a>
-      <a class="navbar-brand" href="#"><span class="head1">Job</span><span class="head2">Portal</span></a>
-      <div class="container w-50">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><span class="head1">Job Portal</span></a>
+      <div class="container w-50"> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,8 +50,8 @@
                 <a class="nav-link active dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Company
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a class="dropdown-item" href="/accepted_companies/">Accepted</a></li>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" style="background-color:#a284d2; border-radius: 5%;">
+                  <li><a class="dropdown-item" href="/accepted_companies/" >Accepted</a></li>
                   <li><a class="dropdown-item" href="/pending_companies/">Pending</a></li>
                   <li><a class="dropdown-item" href="/rejected_companies/">Rejected</a></li>
                   <li><a class="dropdown-item" href="/all_companies/">All Companies</a></li>
@@ -66,7 +66,7 @@
             <a class="nav-link active" href="/logout/">Logout</a>
           </li>
         </ul>
-        <a class="navbar-brand" style="font-weight: bold; font-family: 'Times New Roman', Times, serif;" href="#">Welcome {{request.user.get_full_name}}</a>
+        <a class="navbar-brand" style="font-weight: bold;" href="#">Welcome {{request.user.get_full_name}}</a>
       </div>
       </div>
   </nav>
