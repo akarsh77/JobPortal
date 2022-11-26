@@ -42,8 +42,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           {% if not request.user.is_authenticated %}
-          <li class="nav-item active">
-            <a class="nav-link {% block home %} {% endblock %}" aria-current="page" href="/" style="color: #e0efdeff;">Home</a>
+          <li class="nav-item">
+            <a class="nav-link active {% block home %} {% endblock %} active" aria-current="page" href="/" style="color: #e0efdeff;">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% block user_login %} {% endblock %}" href="/user_login/" style="color: #e0efdeff;">User Login</a>
