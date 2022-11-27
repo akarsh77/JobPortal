@@ -61,11 +61,19 @@ def user_homepage(request):
 def all_jobs(request):
     jobs = Job.objects.all().order_by('-start_date')
     applicant = Applicant.objects.get(user=request.user)
-    apply = Application.objects.filter(applicant=applicant)
-    data = []
+    apply = Application.objects.filter(applicant=applicant,status=0)
+    selected = Application.objects.filter(applicant=applicant,status=1)
+    rejected = Application.objects.filter(applicant=applicant,status=-1)
+    applied_data = []
     for i in apply:
-        data.append(i.job.id)
-    return render(request, "all_jobs.html", {'jobs':jobs, 'data':data})
+        applied_data.append(i.job.id)
+    selected_data = []
+    for i in selected:
+        selected_data.append(i.job.id)
+    rejected_data = []
+    for i in rejected:
+        rejected_data.append(i.job.id)
+    return render(request, "all_jobs.html", {'jobs':jobs, 'applied_data':applied_data, 'selected_data':selected_data, 'rejected_data':rejected_data})
 
 def job_detail(request, myid):
     job = Job.objects.get(id=myid)
