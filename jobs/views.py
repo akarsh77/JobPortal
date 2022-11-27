@@ -135,7 +135,7 @@ def signup(request):
         applicants = Applicant.objects.create(user=user, phone=phone, gender=gender, image=image, type="applicant")
         user.save()
         applicants.save()
-        return render(request, "user_login.html")
+        return redirect('user_login')
     return render(request, "signup.html")
 
 def company_signup(request):
