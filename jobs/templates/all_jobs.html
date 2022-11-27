@@ -28,8 +28,12 @@
             <td>{{job.location}}</td>
             <td>{{job.creation_date}}</td>
 
-            {% if job.id in data %}
+            {% if job.id in applied_data %}
             <td><a class="btn btn-success">Applied</a></td>
+            {% elif job.id in selected_data %}
+            <td><a class="btn btn-success">Selected</a></td>
+            {% elif job.id in rejected_data %}
+            <td>Rejected</td>
             {% else %}
             <td><a href="/job_detail/{{job.id}}/" class="btn btn-success">Apply</a></td>
             {% endif %}
